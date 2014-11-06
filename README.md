@@ -9,12 +9,14 @@ This app is an app to track inventpry and to generate shopping list.
 
 **Setup environment**
 
-`make environment`
+`make virtualenv`
 
 **install package**
 
 `make requirements`
 
+# Environment Variables
+- `SQ1_ENV`: environment (dev or prod)
 
-TODO:
-- as a user, i should be able to put an item in the shopping list.
+# Rest
+- `/items`: get list of items
