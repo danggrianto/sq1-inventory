@@ -1,13 +1,16 @@
 ACTIVATE = $(ENVDIR)/bin/activate
-APP = app.py
+APP = $(MODULE)/app.py
 ENVDIR = ./env
 FABRIC = $(ENVDIR)/bin/fab
+MODULE = src
+NOSE = $(ENVDIR)/bin/nosetests
 PIP = C_INCLUDE_PATH="/opt/local/include:/usr/local/include" $(ENVDIR)/bin/pip
 PIPOPTS=$(patsubst %,-r %,$(wildcard $(HOME)/.requirements.pip requirements.pip)) --index-url=$(PYTHON_INDEX_URL)
 PYTHON = $(ENVDIR)/bin/python
 PYTHON_INDEX_URL = https://pypi.python.org/simple
-PYTHON_VERSION = python3.4
+PYTHON_VERSION = python2.7
 REQUIREMENT = requirements.pip
+TESTS = tests
 VIRTUALENV = virtualenv
 VIRTUALENVOPTS = --python=$(PYTHON_VERSION)
 
@@ -25,8 +28,14 @@ virtualenv: $(ENVDIR)
 $(ENVDIR):
 	$(VIRTUALENV) $(VIRTUALENVOPTS) $(ENVDIR)
 
-server:
+server: $(ENVDIR) .req
 	$(PYTHON) $(APP)
 
+test: $(ENVDIR) .req
+	$(NOSE) --cover-package=$(MODULE) --tests=tests/$*
+
 clean:
+	rm .coverage
+
+clean-all:
 	rm -rf $(ENVDIR)
