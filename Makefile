@@ -9,7 +9,7 @@ PIPOPTS=$(patsubst %,-r %,$(wildcard $(HOME)/.requirements.pip requirements.pip)
 PYTHON = $(ENVDIR)/bin/python
 PYTHON_INDEX_URL = https://pypi.python.org/simple
 PYTHON_VERSION = python2.7
-REQUIREMENT = requirements.pip
+REQUIREMENT = requirements.txt
 TESTS = tests
 VIRTUALENV = virtualenv
 VIRTUALENVOPTS = --python=$(PYTHON_VERSION)
