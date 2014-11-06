@@ -1,19 +1,22 @@
 sq1-inventory
 =============
 
-square one inventory app
+square one inventory app back end
 
 This app is an app to track inventpry and to generate shopping list.
 
 # How to:
 
-**Setup environment**
+## Setup environment
 
 `make virtualenv`
 
-**install package**
+## install package
 
 `make requirements`
+
+## test
+`make test`
 
 # Environment Variables
 - `SQ1_ENV`: environment (dev or prod)
