@@ -1,0 +1,6 @@
+[run]
+omit=*mock.*, *unittest*, env/*, *__init__*
+
+[report]
+exclude_lines =
+    if __name__ == .__main__.:
