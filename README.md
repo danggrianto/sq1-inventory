@@ -18,6 +18,9 @@ This app is an app to track inventpry and to generate shopping list.
 ## test
 `make test`
 
+## deployment
+`git push heroku master`
+
 # Environment Variables
 - `SQ1_ENV`: environment (dev or prod)
 
